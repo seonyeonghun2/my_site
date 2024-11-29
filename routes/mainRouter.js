@@ -1,17 +1,20 @@
-const express = require('express')
+const express = require("express");
 const router = express.Router();
-const mainLayout = require("../views/layouts/main.ejs");
+// const commonLayout = require("../views/layouts/common.ejs");
 
-router.get('/', (req, res) => {
-    const locals = {
-      title: 'Page Title',      
-      header: 'Page Header'
-    };
-    res.render('index', {layout: mainLayout, locals});
+router.get(["/", "/home"], (req, res) => {
+  const locals = {
+    title: "홈",
+    header: "home page",
+  };
+  res.render("index", {
+    locals: locals,
+    layout: "layouts/common",
   });
+});
 // router.get('/signup', (req, res) => {
 // // res.send('Hello World!')
 // res.render('join');
 // });
 
-  module.exports = router;
+module.exports = router;
