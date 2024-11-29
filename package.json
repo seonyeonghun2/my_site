@@ -1,0 +1,26 @@
+{
+  "name": "my_site",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon ./app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "데이터베이스를 활용한 웹 서비스 구현",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules/",
+      "public/"
+    ],
+    "watch": [
+      "./"
+    ]
+  }
+}
