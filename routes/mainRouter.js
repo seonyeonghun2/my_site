@@ -4,8 +4,8 @@ const mainLayout = "../views/layouts/main.ejs";
 
 router.get('/', (req, res) => {
   const locals = {
-    title: 'My Site ',
-    header: 'Special Header'
+    title: 'My Site',
+    header: 'Web Developer\'s 팁과 노하우 '
   }
   res.render('index', {locals, layout: mainLayout});
 });
