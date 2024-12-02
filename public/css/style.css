@@ -3,7 +3,8 @@
     --primary-text-color: #505f98;
     --secondary-text-color: #ffffff;
     --primary-bg-color: #f1f1f1;
-    --secondary-bg-color: #111B47
+    --secondary-bg-color: #111B47;
+    --third-bg-color: #E7ECFF;
 }
 *,
 *::before,
@@ -73,4 +74,17 @@ a, a:link {
     color: var(--secondary-text-color);
     width: 8rem;
     height: 1.3rem;
+}
+
+.hero img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.footer {
+    padding: 1rem;
+    background-color: var(--third-bg-color)
+}
+.footer hr {
+    margin: 1rem 0
 }
