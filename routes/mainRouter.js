@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require("express");
 const router = express.Router();
 const mainLayout = "../views/layouts/main.ejs";
 
@@ -38,4 +38,4 @@ router.get('/contact', (req, res) => {
   res.render('contact', {locals, layout: mainLayout});
 });
 
-  module.exports = router;
+module.exports = router;
