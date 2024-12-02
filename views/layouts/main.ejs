@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= locals.title %></title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header><!-- 공통 헤더-->
-        <div class="header__logo"><%= locals.header %></div>
+    <header class="header d-flex space-between"><!-- 공통 헤더-->
         <nav class="header__nav">
-            <ul>
+            <ul class="d-flex gap-1">
                 <li>
                     <a href="#">Home</a>
                 </li>
@@ -21,6 +21,7 @@
                 </li>
             </ul>
         </nav>
+        <div class="header__logo"><%= locals.header %></div>
         <div class="header__btn">
             <button>Buy Now</button>
         </div>
