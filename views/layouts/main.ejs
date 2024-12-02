@@ -21,16 +21,21 @@
                 </li>
             </ul>
         </nav>
-        <div class="header__logo"><%= locals.header %></div>
+        <main class="header__logo"><%= locals.header %></div>
         <div class="header__btn">
             <button>Buy Now</button>
         </div>
     </header>
-    <div class="container">        
-        <%- body %>
+    <div class="hero">
+        <img src="/images/hero-title.jpg" alt="사이트 이미지">
     </div>
-    <footer>
-        <div class="footer__top">
+    <main class="main">        
+        <div class="container">
+            <%- body %>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__top d-flex space-between">
             <div class="copy">
                 <p>&copy; 2023 My Site</p>                
             </div>
@@ -42,7 +47,34 @@
             </div>
         </div>
         <hr>
-        <div class="footer_bottom"></div>
+        <div class="footer_bottom d-flex space-between">
+            <nav class="footer__nav">
+                <ul class="d-flex gap-1">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="footer__icons">
+                <ul class="d-flex gap-1">
+                    <li>
+                        <a href="#">fb</a>
+                    </li>
+                    <li>
+                        <a href="#">youtube</a>
+                    </li>
+                    <li>
+                        <a href="#">insta</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </footer><!-- 공통 푸터-->
 </body>
 </html>
