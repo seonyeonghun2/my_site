@@ -2,6 +2,10 @@ const express = require('express')
 const router = express.Router();
 const mainLayout = "../views/layouts/main.ejs";
 
+/**
+ * 첫 페이지 : index router
+ * GET / or /home
+ */
 router.get('/', (req, res) => {
   const locals = {
     title: 'My Site',
@@ -9,9 +13,29 @@ router.get('/', (req, res) => {
   }
   res.render('index', {locals, layout: mainLayout});
 });
-// router.get('/signup', (req, res) => {
-// // res.send('Hello World!')
-// res.render('join');
-// });
+
+/**
+ * About : 사이트 소개
+ * GET /about
+ */
+router.get('/about', (req, res) => {
+  const locals = {
+    title: 'My Site',
+    header: '사이트 소개'
+  }
+  res.render('about', {locals, layout: mainLayout});
+});
+
+/**
+ * Contact : 작업 요청, 의뢰
+ * GET /contact
+ */
+router.get('/contact', (req, res) => {
+  const locals = {
+    title: 'My Site',
+    header: '작업요청 및 상담'
+  }
+  res.render('contact', {locals, layout: mainLayout});
+});
 
   module.exports = router;
