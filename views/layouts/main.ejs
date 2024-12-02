@@ -3,11 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=title%></title>
+    <title><%= locals.title %></title>
 </head>
 <body>
-    <div class="container">
-        <h1><%=header%></h1>
+    <header><!-- 공통 헤더-->
+        <div class="header__logo"><%= locals.header %></div>
+        <nav class="header__nav">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__btn">
+            <button>Buy Now</button>
+        </div>
+    </header>
+    <div class="container">        
+        <%- body %>
     </div>
+    <footer>
+        <div class="footer__top">
+            <div class="copy">
+                <p>&copy; 2023 My Site</p>                
+            </div>
+            <div class="brand">
+                Developer's Guide
+            </div>
+            <div class="buy">
+                <button>Purchase now</button>
+            </div>
+        </div>
+        <hr>
+        <div class="footer_bottom"></div>
+    </footer><!-- 공통 푸터-->
 </body>
 </html>
