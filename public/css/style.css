@@ -30,6 +30,15 @@ a, a:link {
     color: inherit;
     text-decoration: none
 }
+form, fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0
+}
+legend {
+    display: none
+}
+
 .d-flex {
     display: flex
 }
@@ -50,6 +59,18 @@ a, a:link {
 }
 .gap-3 {
     gap: 3rem
+}
+.text-center {
+    text-align: center
+}
+.text-big {
+    font-size: 1.5rem !important
+}
+.text-normal {
+    font-size: .8rem
+}
+.text-small {
+    font-size: .5rem
 }
 
 /* header */
@@ -93,6 +114,38 @@ a, a:link {
     font-size: .725rem;
     font-weight: normal
 }
+
+#admin.login_form fieldset {
+    max-width: 22.5rem;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.2);
+    border-radius: 5px
+}
+#user_id, #user_pwd {
+    width: 100%;
+    padding: .5rem 1rem;
+    margin: .25rem 0;
+}
+.link-text:hover {
+    color: var(--primary-text-color)
+}
+
+.btn {
+    border: 0;
+    padding: .5rem 1rem
+}
+.btn-admin {
+    background-color: var(--primary-text-color);
+    color: var(--secondary-text-color);
+}
+.screen_out {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -9999px
+}
+
 
 .footer {
     padding: 1rem;
