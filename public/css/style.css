@@ -42,6 +42,12 @@ legend {
 .d-flex {
     display: flex
 }
+.flex-end {
+    justify-content: flex-end;
+}
+.flex-start {
+    justify-content: flex-start;
+}
 .space-between {
     justify-content: space-between
 }
@@ -144,6 +150,12 @@ legend {
     width: 0;
     height: 0;
     left: -9999px
+}
+.body {
+    flex: 8
+}
+.ctrl {
+    flex: 1
 }
 
 
