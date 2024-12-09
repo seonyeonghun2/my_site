@@ -1,2 +1,29 @@
-<h1>Hello World</h1>
-<h2>EJS로 렌더링한 HTML문서</h2>
+<div class="articles">
+    <div class="articles-title">
+        <h1>최신글</h1>
+    </div>
+    <div class="articles-content">
+        <ul class="article-title my-1">
+            <li class="d-flex gap-1">
+                <span class="border-bottom flex-4 text-center">제목</span>
+                <span class="border-bottom flex-1 text-center">날짜</span>
+            </li>
+        </ul>
+        <ul class="article-body">
+            <% data.forEach(post => { %>
+                <li class="d-flex gap-1 my-1">
+                    <span class="flex-4 post-title">
+                        <a href="posts/<%= post._id %>"><%= post.title %></a>
+                    </span>
+                    <span class="flex-1 post-date text-center">
+                        <%= post.createdAt.toLocaleString('ko-kr', {
+                            year: '2-digit',
+                            month: '2-digit',
+                            day: '2-digit'
+                        }) %>
+                    </span>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
