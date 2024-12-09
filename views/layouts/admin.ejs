@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.title %></title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header d-flex space-between"><!-- 공통 헤더-->
+        <nav class="header__nav">
+            <ul class="d-flex gap-1">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__logo"><%= locals.header %></div>
+        <div class="header__btn">
+            <button id="admin_logout">Admin Logout</button>
+        </div>
+    </header>
+    <div class="hero">
+        <img src="/images/hero-title.jpg" alt="사이트 이미지">
+    </div>
+    <main class="main">        
+        <div class="container">
+            <%- body %>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__top d-flex space-between">
+            <div class="copy">
+                <p>&copy; 2023 My Site</p>                
+            </div>
+            <div class="brand">
+                Developer's Guide
+            </div>
+            <div class="buy">
+                <button>Purchase now</button>
+            </div>
+        </div>
+        <hr>
+        <div class="footer_bottom d-flex space-between">
+            <nav class="footer__nav">
+                <ul class="d-flex gap-1">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="footer__icons">
+                <ul class="d-flex gap-1">
+                    <li>
+                        <a href="#">fb</a>
+                    </li>
+                    <li>
+                        <a href="#">youtube</a>
+                    </li>
+                    <li>
+                        <a href="#">insta</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer><!-- 공통 푸터-->
+    <script src="script/admin.js"></script>
+</body>
+</html>
