@@ -4,7 +4,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const jwtSecret = process.env.JWT_SECRET; // secretOrPrivate Key
 const cookieParser = require("cookie-parser");
-const mainLayout = "../views/layouts/main.ejs";
+const adminLayout = "../views/layouts/admin.ejs"; // 누구나 볼 수 있는 레이아웃
+const mainLayout = "../views/layouts/main.ejs"; // 누구나 볼 수 있는 레이아웃
 const User = require("../models/User.js"); // node v18 이상은 확장자를 생략할수 없음.
 /**
  * 관리자 로그인 폼
@@ -31,7 +32,7 @@ router.post("/admin", async (req, res) => {
       return res.status(401).json({ message: "존재하지 않는 사용자입니다"});
     }
 
-    const isValid = bcrypt.compare(user_pwd, user.user_pwd);
+    const isValid = bcrypt.compare(user_pwd, user[0].user_pwd);
 
     if (!isValid) {
       return res.status(401).json({ message: "아이디, 비밀번호를 다시 확인하세요"});
@@ -64,7 +65,7 @@ router.get("/allPosts", 토큰체크MW, (req, res) => {
   // 토큰 체크 : 관리자 유무 확인
   
   
-  res.render("admin/allPosts", { layout: mainLayout });
+  res.render("admin/allPosts", { layout: adminLayout });
 })
 
 
@@ -73,7 +74,11 @@ router.get("/allPosts", 토큰체크MW, (req, res) => {
  * GET /register
  */
 router.get("/register", (req, res) => {
-  res.send("회원 가입 폼을 보여줍니다.");
+  const locals = {
+    title: "Register Memeber",
+    header: "회원가입",
+  };
+  res.render("register", {layout: mainLayout, locals})
 });
 
 /**
@@ -114,4 +119,13 @@ router.post("/register", async (req, res) => {
 router.post("/find", (req, res) => {
   res.send("이름 또는 이메일정보로 회원 ID/PW 찾기");
 });
+
+/**
+ * 관리자 로그아웃
+ * GET /lgout
+ */
+router.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/");
+})
 module.exports = router;
