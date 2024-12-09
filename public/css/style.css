@@ -66,6 +66,33 @@ legend {
 .gap-3 {
     gap: 3rem
 }
+.flex-1 {
+    flex: 1
+}
+.flex-2 {
+    flex: 2
+}
+.flex-3 {
+    flex: 3
+}
+.flex-4 {
+    flex: 4
+}
+.flex-5 {
+    flex: 5
+}
+.my-1 {
+    margin-top: 1rem;
+    margin-top: 1rem;
+}
+.my-2 {
+    margin-top: 2rem;
+    margin-top: 2rem;
+}
+.my-3 {
+    margin-top: 3rem;
+    margin-top: 3rem;
+}
 .text-center {
     text-align: center
 }
@@ -128,7 +155,7 @@ legend {
     box-shadow: 2px 2px 5px 0 rgba(0,0,0,.2);
     border-radius: 5px
 }
-#user_id, #user_pwd {
+#user_id, #user_pwd, #user_pwd2, #user_nick, #user_email {
     width: 100%;
     padding: .5rem 1rem;
     margin: .25rem 0;
@@ -158,6 +185,14 @@ legend {
     flex: 1
 }
 
+/* home - 최신글 */
+.border-bottom {
+    border-bottom: 1px solid #333;    
+}
+.article-body li:hover a {
+    color: var(--primary-text-color);
+    font-weight: bold
+}
 
 .footer {
     padding: 1rem;
