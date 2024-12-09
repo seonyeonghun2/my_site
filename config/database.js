@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
-mongoose.set("debug", true);
+// mongoose.set("debug", true);
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGODB_URI, {
       authSource: "admin",
+      serverSelectionTimeoutMS: 50000
     });
     console.log("=================== DB 연결 성공 =================");
     if (!conn) {
