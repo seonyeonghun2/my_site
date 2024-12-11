@@ -1,17 +1,36 @@
 <h2 class="text-big">All Posts</h2>
-<div class="header d-flex flex-end">
-    <button>글쓰기</button>
+<div class="header d-flex space-between align-center">
+    <span class="text-normal">Total : <%= len %> </span>
+    <button class="btn btn-write" id="add">글쓰기</button>
 </div>
-<hr>
-<ul class="lists">
-    <li class="d-flex space-between gap-2">        
-        <div class="body d-flex space-between">
-            <p class="title"><a href="#">작성한 글의 제목이 나타납니다.</a></p>
-            <p class="wr_date">작성일</p>
+<div class="article-header d-flex box-header">
+    <p class="flex-5 text-center">제목</p>
+    <p class="flex-1 text-center">작성일</p>
+    <p class="flex-1 text-center">관리</p>
+</div>
+<ul class="article-body">
+    <% data.forEach(post => { %>
+    <li class="d-flex space-between align-center my-1">        
+        <div class="body d-flex flex-4 space-between align-center">
+            <p class="title"><a href="#"><%= post.title %></a></p>
+            <p class="wr_date mr-1 text-small"><%= post.createdAt.toLocaleString('ko-kr', {
+                year: '2-digit',
+                month: '2-digit',
+                day: '2-digit'
+            }).replace(/\./g, '').replaceAll(' ','/') %></p>
         </div>
-        <div class="ctrl">
-            <button>수정</button>
-            <button>삭제</button>
+        <div class="ctrl flex-1">
+            <button type="button" class="btn btn-modify">수정</button>
+            <button type="button" class="btn btn-delete">삭제</button>
         </div>
-    </li>    
+    </li>  
+    <% }) %>  
 </ul>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const addBtn = document.querySelector("#add");
+        addBtn.addEventListener("click", () => {
+            location.href = '/add'
+        })
+    })
+</script>
