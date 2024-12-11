@@ -11,9 +11,9 @@
         </ul>
         <ul class="article-body">
             <% data.forEach(post => { %>
-                <li class="d-flex gap-1 my-1">
+                <li class="d-flex my-1">
                     <span class="flex-4 post-title">
-                        <a href="posts/<%= post._id %>"><%= post.title %></a>
+                        <a href="posts/<%= post._id %>#content"><%= post.title %></a>
                     </span>
                     <span class="flex-1 post-date text-center">
                         <%= post.createdAt.toLocaleString('ko-kr', {
