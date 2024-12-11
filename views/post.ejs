@@ -1,0 +1,23 @@
+<div class="article">
+    <div class="article-header">
+        <p class="text-big"><%= data.title %></p>
+        <p class="text-small"><%= data.createdAt.toLocaleString('ko-kr') %></p>
+    </div>
+    <div class="article-main bg-light my-1 p-1">
+        <p class="text-normal" id="content"><%= data.content %></p>
+    </div>
+    <div class="article-footer">
+        <button type="button" class="btn btn-light" id="list">목록</button>
+        <button type="button" class="btn btn-dark" id="top">맨위로</button>
+    </div>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => { // HTML이 모두 브라우저에서 표시되고 나면
+            // 1. 목록 버튼
+            const listBtn = document.querySelector("#list");
+            // 1-1. 이벤트 추가
+            listBtn.addEventListener("click", () => {
+                location.href = '/';
+            })
+        })
+    </script>
+</div>
