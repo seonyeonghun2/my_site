@@ -6,7 +6,7 @@ const Post = require('../models/Post.js'); // Post 생성, 조회, 삭제, 수�
  * 첫 페이지 : index router
  * GET / or /home
  */
-router.get('/', async (req, res) => {
+router.get(['/','/home'], async (req, res) => {
   const locals = {
     title: 'My Site',
     header: 'Web Developer\'s 팁과 노하우 '
@@ -24,8 +24,14 @@ router.get('/', async (req, res) => {
  * 라우트 파라미터(=매개변수) | 끝에 작성
  */
 router.get('/posts/:id', async (req, res) => {
+  const locals = {
+    title: 'My Site',
+    header: '사이트 소개'
+  }
+  
   const data = await Post.findById(req.params.id)
-  res.status(200).send(data)
+  
+  res.render("post", {data, locals, layout:mainLayout})
 });
 
 /**
