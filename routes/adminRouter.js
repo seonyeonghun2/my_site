@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const adminLayout = "../views/layouts/admin.ejs"; // 누구나 볼 수 있는 레이아웃
 const mainLayout = "../views/layouts/main.ejs"; // 누구나 볼 수 있는 레이아웃
 const User = require("../models/User.js"); // node v18 이상은 확장자를 생략할수 없음.
+const Post = require("../models/Post.js");
 /**
  * 관리자 로그인 폼
  * GET /admin
@@ -61,13 +62,13 @@ const 토큰체크MW = (req, res, next) => {
   next();
 }
 
-router.get("/allPosts", 토큰체크MW, (req, res) => {
+router.get("/allPosts", 토큰체크MW, async (req, res) => {
   // 토큰 체크 : 관리자 유무 확인
-  
-  
-  res.render("admin/allPosts", { layout: adminLayout });
-})
 
+  const data = await Post.find().sort({createdAt: -1});    
+  const len = data.length; // 글의 갯수
+  res.render("admin/allPosts", { data, len, layout: adminLayout });
+})
 
 /**
  * 회원 가입 폼 보기
@@ -119,6 +120,32 @@ router.post("/register", async (req, res) => {
 router.post("/find", (req, res) => {
   res.send("이름 또는 이메일정보로 회원 ID/PW 찾기");
 });
+
+/**
+ * 관리자 글쓰기 - Admin Post
+ * GET /add
+ */
+router.get('/add', (req, res) => {
+  const locals = {
+    title: '글쓰기'
+  }
+  res.render("admin/add", {locals, layout: adminLayout})
+})
+
+/**
+ * 관리자 글쓰기 - Admin Post
+ * POST /add
+ * DB에 Post 데이터 등록 : Post 모델이 필요.
+ */
+router.post('/add', async (req, res) => {
+  const {title, content} = req.body;
+  const newPost = new Post({
+    title,
+    content
+  });
+  await newPost.save();
+  res.redirect('/allPosts');  
+})
 
 /**
  * 관리자 로그아웃
