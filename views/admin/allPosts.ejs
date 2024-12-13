@@ -20,8 +20,8 @@
             }).replace(/\./g, '').replaceAll(' ','/') %></p>
         </div>
         <div class="ctrl flex-1">
-            <button type="button" class="btn btn-modify">수정</button>
-            <button type="button" class="btn btn-delete">삭제</button>
+            <a href="/edit/<%= post.id %>" class="btn btn-modify">수정</a>
+            <a href="/delete" class="btn btn-delete">삭제</a>
         </div>
     </li>  
     <% }) %>  

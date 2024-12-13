@@ -214,11 +214,11 @@ textarea {
 }
 .btn-modify {
     background-color: var(--secondary-bg-color);
-    color: var(--secondary-text-color)
+    color: var(--secondary-text-color) !important
 }
 .btn-delete {
     background-color: var(--delete-bg-color);
-    color: var(--secondary-text-color)
+    color: var(--secondary-text-color) !important
 }
 .btn-admin {
     background-color: var(--primary-text-color);
