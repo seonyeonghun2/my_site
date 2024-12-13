@@ -1,7 +1,10 @@
 <div class="article">
     <div class="article-header">
         <p class="text-big"><%= data.title %></p>
-        <p class="text-small"><%= data.createdAt.toLocaleString('ko-kr') %></p>
+        <p class="text-small">
+            <span>작성자 : <%= data.usernick %></span>
+            <span>작성일 : <%= data.createdAt.toLocaleString('ko-kr') %></span>
+        </p>
     </div>
     <div class="article-main bg-light my-1 p-1">
         <p class="text-normal" id="content"><%= data.content %></p>

@@ -213,16 +213,24 @@ textarea {
     color: var(--secondary-text-color)
 }
 .btn-modify {
+    display: inline-block;
     background-color: var(--secondary-bg-color);
     color: var(--secondary-text-color) !important
 }
 .btn-delete {
+    display: inline-block;
     background-color: var(--delete-bg-color);
     color: var(--secondary-text-color) !important
 }
 .btn-admin {
     background-color: var(--primary-text-color);
     color: var(--secondary-text-color);
+}
+.btn-write {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
 }
 .screen_out {
     position: absolute;
@@ -234,6 +242,9 @@ textarea {
 /* home - 최신글 */
 .border-bottom {
     border-bottom: 1px solid #333;    
+}
+.article-body li {
+    overflow: hidden
 }
 .article-body li:hover a {
     color: var(--primary-text-color);
