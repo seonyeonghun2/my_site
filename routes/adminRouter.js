@@ -26,9 +26,9 @@ router.get("/admin", (req, res) => {
 router.post("/admin", async (req, res) => {
   try {
     const { user_id, user_pwd } = req.body;
-    console.log(user_id, user_pwd);
+    
     const user = await User.find({ user_id });
-    console.log(user);
+    
     if (!user) {
       return res.status(401).json({ message: "존재하지 않는 사용자입니다"});
     }
@@ -146,6 +146,22 @@ router.post('/add', async (req, res) => {
   await newPost.save();
   res.redirect('/allPosts');  
 })
+
+/**
+ * Admin - Edit Post
+ * GET /edit/:id or /modify/:id
+ * 특정 게시물에 대한 제목/내용 수정 
+ */
+router.get("/edit/:id", async (req, res) => {
+  const locals = {
+    title: '게시글 편집'
+  }
+  const data = await Post.findById(req.params.id);
+  console.log(data);
+  res.render("admin/edit", {locals, data, layout:adminLayout})
+})
+
+
 
 /**
  * 관리자 로그아웃
