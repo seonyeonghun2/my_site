@@ -1,7 +1,7 @@
 <div class="form-ui">
     <h2><%= locals.title %></h2>
     <hr class="my-1">
-    <form action="/edit/<%= data._id %>?_method=PUT" method="POST" id="edit_form">
+    <form action="/edit/<%= data.uuid %>?_method=PUT" method="POST" id="edit_form">
         <div class="d-flex">
             <label for="title" class="flex-1 text-center text-bold">제목</label>
             <input type="text" name="title" id="title" class="p-quarter flex-4" value="<%= data.title %>">
