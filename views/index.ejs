@@ -10,20 +10,23 @@
             </li>
         </ul>
         <ul class="article-body">
-            <% data.forEach(post => { %>
-                <li class="d-flex my-1">
-                    <span class="flex-4 post-title">
-                        <a href="posts/<%= post._id %>#content"><%= post.title %></a>
-                    </span>
-                    <span class="flex-1 post-date text-center">
-                        <%= post.createdAt.toLocaleString('ko-kr', {
-                            year: '2-digit',
-                            month: '2-digit',
-                            day: '2-digit'
-                        }) %>
-                    </span>
+            <% if (data.length == 0) { %>
+                <p class="text-center my-1">등록된 게시물이 없습니다.</p>
+                <% } else { %> <% data.forEach(post => { %>
+                <li class="d-flex space-between align-center my-1">
+                  <div class="body d-flex flex-4 space-between align-center">
+                    <p class="title"><a href="/posts/<%= post._id %>"><%= post.title %></a></p>
+                    <p class="wr_date mr-1 text-small">
+                      <%= post.createdAt.toLocaleString('ko-kr', { year: '2-digit', month:
+                      '2-digit', day: '2-digit' }).replace(/\./g, '').replaceAll(' ','/') %>
+                    </p>
+                  </div>
+                  <!-- <div class="ctrl flex-1 text-center">
+                    <a href="/edit/<%= post._id %>" class="btn btn-modify" title="수정"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="/remove/<%= post._id %>" class="btn btn-delete" title="삭제"><i class="fa-solid fa-trash-can"></i></a>
+                  </div> -->
                 </li>
-            <% }) %>
+                <% }) %> <% } %>
         </ul>
     </div>
 </div>
